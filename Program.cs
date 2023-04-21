@@ -1,3 +1,10 @@
+using eCinema.Data;
+using eCinema.Data.Interfaces;
+using eCinema.Data.Services;
+using eCinema.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
 namespace OufCinema
 {
     public class Program
@@ -8,6 +15,20 @@ namespace OufCinema
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddTransient<IEntity<Actor>,ActorDB>();
+			builder.Services.AddTransient<IEntity<Producer>, ProducerDB>();
+			builder.Services.AddTransient<IEntity<Cinema>, CinemaDB>();
+            builder.Services.AddTransient<IEntity<Movie>, MovieDB>();
+
+            //Authentication (UserManager - SignInManager - RoleManager)
+            builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+
+
+
+            builder.Services.AddDbContext<AppDbContext>(con =>
+            {
+                con.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnetionString"));
+            });
 
             var app = builder.Build();
 
@@ -24,12 +45,14 @@ namespace OufCinema
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
+            app.Seed();
             app.Run();
         }
     }

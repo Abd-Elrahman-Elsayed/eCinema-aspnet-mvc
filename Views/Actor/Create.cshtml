@@ -1,0 +1,55 @@
+﻿@model eCinema.ViewModels.ActorVM
+@{
+	ViewData["Title"] = "Add New Actor";
+}
+
+<div class="row text">
+	<div class="col-md-8 offset-2">
+		<p>
+			<h1>Add a new Actor</h1>
+		</p>
+		<div class="row">
+			<div class="col-md-8 offset-2">
+				<form asp-action="Create" enctype="multipart/form-data">
+					<div class="form-group">
+						<label asp-for="Actor.FullName" class="control-label"></label>
+						<input asp-for="Actor.FullName" class="form-control" />
+						<span asp-validation-for="Actor.FullName" class="text-danger"></span>
+					</div><br />
+
+					<div class="form-group">
+						<label asp-for="Actor.Bio" class="control-label"></label>
+						<input asp-for="Actor.Bio" class="form-control" />
+						<span asp-validation-for="Actor.Bio" class="text-danger"></span>
+					</div><br />
+
+					<div class="form-group">
+						<label asp-for="File" class="control-label"></label>
+						<input type="file" name="File" asp-for="File" class="form-control" />
+						<span asp-validation-for="File" class="text-danger"></span>
+					</div><br />
+
+					<div class="form-group">
+						<label asp-for="Actor.BirthDate" class="control-label"></label>
+						<input asp-for="Actor.BirthDate" class="form-control" />
+						<span asp-validation-for="Actor.BirthDate" class="text-danger"></span>
+					</div><br />
+					<div class="form-group">
+						<label asp-for="Actor.Country" class="control-label"></label>
+						<input asp-for="Actor.Country" class="form-control" />
+						<span asp-validation-for="Actor.Country" class="text-danger"></span>
+					</div><br />
+					<div class="form-group">
+						<input type="submit" value="Add" class="btn btn-success float-end" />
+						<a asp-action="Index" class="btn btn-outline-success">Back To Actors' List</a>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts{
+	<partial name="_ValidationScriptsPartial" />
+}

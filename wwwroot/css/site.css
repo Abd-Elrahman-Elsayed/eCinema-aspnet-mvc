@@ -16,3 +16,11 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.searchInput{
+    display:inline;
+    width:70%
+}
+.searchBtn{
+    padding: 0.2rem 0.75rem;
+}

@@ -1,0 +1,47 @@
+﻿@model eCinema.ViewModels.CinemaVM
+@{
+	ViewData["Title"] = "Update Cinema";
+}
+
+<div class="row text">
+	<div class="col-md-8 offset-2">
+		<p>
+			<h1>Update an Cinema</h1>
+		</p>
+		<div class="row">
+			<div class="col-md-8 offset-2">
+				<form asp-action="Edit" enctype="multipart/form-data">
+					<input asp-for="Cinema.Id" hidden />
+					<input asp-for="Cinema.Logo" hidden />
+
+					<div class="form-group">
+						<label asp-for="Cinema.Name" class="control-label"></label>
+						<input asp-for="Cinema.Name" class="form-control" />
+						<span asp-validation-for="Cinema.Name" class="text-danger"></span>
+					</div><br />
+
+					<div class="form-group">
+						<label asp-for="Cinema.Description" class="control-label"></label>
+						<input asp-for="Cinema.Description" class="form-control" />
+						<span asp-validation-for="Cinema.Description" class="text-danger"></span>
+					</div><br />
+
+					<div class="form-group">
+						<label asp-for="File" class="control-label"></label>
+						<input type="file" name="File" asp-for="File" class="form-control" />
+						<span asp-validation-for="File" class="text-danger"></span>
+					</div><br />
+<br />
+					<div class="form-group">
+						<input type="submit" value="Update" class="btn btn-success float-end" />
+						<a asp-action="Index" class="btn btn-outline-success">Back To Cinemas' List</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+@*@section Scripts{
+	<partial name="_ValidationScriptsPartial" />
+}*@

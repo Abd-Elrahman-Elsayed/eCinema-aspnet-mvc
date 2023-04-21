@@ -1,0 +1,36 @@
+﻿@model eCinema.Models.Cinema
+@{
+    ViewData["Title"] = "Cinema Deleting";
+}
+
+<section class="section about-section gray-bg" id="about">
+    <div class="container">
+        <h1 class="text-danger">Are You Sure?</h1>
+        <div class="row align-items-center flex-row-reverse">
+            <div class="col-lg-6">
+                <div class="about-text go-to">
+                    <h3 class="dark-color">@Model.Name</h3>
+                    <h6 class="theme-color lead">A Lead Cinema in the whole world</h6>
+                    <p>For <mark>My Description</mark>, @Model.Description</p>
+                    <div class="row about-list">
+                        <div class="media row">
+                            <form method="post" class="row">
+                                <a class="btn btn-outline-info col-4 ms-4" asp-action="Index">Back To Cinemas' List</a>
+                                <input type="submit" class="btn btn-danger col-2 offset-2" value="Confirm">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-avatar">
+                    <img src="@Model.Logo" title="@Model.Name" alt="@Model.Name">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Style{
+        <link rel="stylesheet" href="~/css/ActorDetails.css" />
+}

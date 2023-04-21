@@ -1,0 +1,57 @@
+﻿@model eCinema.ViewModels.ProducerVM
+@{
+	ViewData["Title"] = "Update Producer";
+}
+
+<div class="row text">
+	<div class="col-md-8 offset-2">
+		<p>
+			<h1>Update an Producer</h1>
+		</p>
+		<div class="row">
+			<div class="col-md-8 offset-2">
+				<form asp-action="Edit" enctype="multipart/form-data">
+					<input asp-for="Producer.Id" hidden />
+					<input asp-for="Producer.ImageUrl" hidden />
+
+					<div class="form-group">
+						<label asp-for="Producer.FullName" class="control-label"></label>
+						<input asp-for="Producer.FullName" class="form-control" />
+						<span asp-validation-for="Producer.FullName" class="text-danger"></span>
+					</div><br />
+
+					<div class="form-group">
+						<label asp-for="Producer.Bio" class="control-label"></label>
+						<input asp-for="Producer.Bio" class="form-control" />
+						<span asp-validation-for="Producer.Bio" class="text-danger"></span>
+					</div><br />
+
+					<div class="form-group">
+						<label asp-for="File" class="control-label"></label>
+						<input type="file" name="File" asp-for="File" class="form-control" />
+						<span asp-validation-for="File" class="text-danger"></span>
+					</div><br />
+
+					<div class="form-group">
+						<label asp-for="Producer.BirthDate" class="control-label"></label>
+						<input asp-for="Producer.BirthDate" class="form-control" />
+						<span asp-validation-for="Producer.BirthDate" class="text-danger"></span>
+					</div><br />
+					<div class="form-group">
+						<label asp-for="Producer.Country" class="control-label"></label>
+						<input asp-for="Producer.Country" class="form-control" />
+						<span asp-validation-for="Producer.Country" class="text-danger"></span>
+					</div><br />
+					<div class="form-group">
+						<input type="submit" value="Update" class="btn btn-success float-end" />
+						<a asp-action="Index" class="btn btn-outline-success">Back To Producers' List</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+@*@section Scripts{
+	<partial name="_ValidationScriptsPartial" />
+}*@
