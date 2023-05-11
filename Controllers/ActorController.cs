@@ -1,5 +1,5 @@
 ﻿using eCinema.Data;
-using eCinema.Data.Interfaces;
+using eCinema.Data.Base;
 using eCinema.Models;
 using eCinema.ViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -12,10 +12,10 @@ namespace eCinema.Controllers
     [Authorize]
     public class ActorController : Controller
     {
-        public readonly IEntity<Actor> _context;
+        public readonly IEntityBaseRepository<Actor> _context;
         public readonly Microsoft.AspNetCore.Hosting.IHostingEnvironment _hosting;
 
-        public ActorController(IEntity<Actor> context, IHostingEnvironment hosting)
+        public ActorController(IEntityBaseRepository<Actor> context, IHostingEnvironment hosting)
         {
             _context = context;
             _hosting= hosting;
@@ -23,8 +23,7 @@ namespace eCinema.Controllers
 
         public async Task<IActionResult> Index()
         {
-            List<Actor> AllActors = await _context.GetAllAsync();
-            return View(AllActors);
+            return View(await _context.GetAllAsync());
         }
 
         public IActionResult Create()
@@ -42,14 +41,13 @@ namespace eCinema.Controllers
                 string fullPath = Path.Combine(uploads, fileName);
                 actorVM.File.CopyTo(new FileStream(fullPath,FileMode.Create));
 
-				var Actor = actorVM.Actor;
-				Actor.ImageUrl = "/uploads/"+fileName;
-				await _context.AddAsync(Actor);
+                actorVM.Actor.ImageUrl = "/uploads/" + fileName;
+                await _context.AddAsync(actorVM.Actor);
 				return RedirectToAction("Index");
             }
             else
             {
-                throw new Exception();
+                return View(actorVM);
             }
             
         }
@@ -59,7 +57,7 @@ namespace eCinema.Controllers
             var Actor = await _context.GetByIdAsync(id);
             if(Actor is null)
             {
-                return RedirectToAction("Index");
+                return View("Not Found");
             }
             return View(Actor);
         }
@@ -89,7 +87,7 @@ namespace eCinema.Controllers
             }
             else
             {
-				throw new Exception();
+				return View(actorVM);
 			}
 		}
 

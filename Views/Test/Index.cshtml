@@ -1,0 +1,27 @@
+﻿@{
+	int age = (int)ViewData["num"] + 5;
+}
+
+<h1>@age</h1>
+<div id="cont">
+	<input type="text" class="form-control" id="num"/>
+	<input onclick="getData()" class="btn btn-outline-dark" value="Show"/>
+</div>
+
+@section Scripts{
+
+	<script>
+		function getData(){
+			var num = $("#num").val();
+			$.ajax({
+				url: "/Cinema/Details",
+				data: {"id": num},
+				success: function(result) {
+					$("#cont").html(result);
+				}
+			})
+		}
+		
+
+	</script>
+}

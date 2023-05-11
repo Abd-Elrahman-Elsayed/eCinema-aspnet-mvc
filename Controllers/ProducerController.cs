@@ -1,5 +1,5 @@
 ﻿using eCinema.Data;
-using eCinema.Data.Interfaces;
+using eCinema.Data.Base;
 using eCinema.Models;
 using eCinema.ViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -9,10 +9,10 @@ namespace eCinema.Controllers
 {
     public class ProducerController : Controller
 	{
-		public readonly IEntity<Producer> _context;
+		public readonly IEntityBaseRepository<Producer> _context;
         private readonly Microsoft.AspNetCore.Hosting.IHostingEnvironment _hosting;
 
-        public ProducerController(IEntity<Producer> context, Microsoft.AspNetCore.Hosting.IHostingEnvironment hosting)
+        public ProducerController(IEntityBaseRepository<Producer> context, Microsoft.AspNetCore.Hosting.IHostingEnvironment hosting)
 		{
 			_context = context;
             _hosting = hosting;
@@ -20,8 +20,7 @@ namespace eCinema.Controllers
 
 		public async Task<IActionResult> Index()
 		{
-			var AllProducts = await _context.GetAllAsync();
-			return View(AllProducts);
+			return View(await _context.GetAllAsync());
 		}
 
         public IActionResult Create()
@@ -39,26 +38,25 @@ namespace eCinema.Controllers
                 string fullPath = Path.Combine(uploads, fileName);
                 ProducerVM.File.CopyTo(new FileStream(fullPath, FileMode.Create));
 
-                var producer = ProducerVM.Producer;
-                producer.ImageUrl = "/uploads/" + fileName;
-                await _context.AddAsync(producer);
+                ProducerVM.Producer.ImageUrl = "/uploads/" + fileName;
+                await _context.AddAsync(ProducerVM.Producer);
                 return RedirectToAction("Index");
             }
             else
             {
-                throw new Exception();
+                return View(ProducerVM);
             }
 
         }
 
         public async Task<IActionResult> Details(int id)
         {
-            var Actor = await _context.GetByIdAsync(id);
-            if (Actor is null)
+            var Producer = await _context.GetByIdAsync(id);
+            if (Producer is null)
             {
-                return RedirectToAction("Index");
+                return View("Not Found");
             }
-            return View(Actor);
+            return View(Producer);
         }
 
         public async Task<IActionResult> Edit(int id)
@@ -86,7 +84,7 @@ namespace eCinema.Controllers
             }
             else
             {
-                throw new Exception();
+                return View(ProducerVM);
             }
         }
 

@@ -1,4 +1,4 @@
-﻿using eCinema.Data.Interfaces;
+﻿using eCinema.Data.Base;
 using eCinema.Models;
 using eCinema.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -8,23 +8,27 @@ namespace eCinema.Controllers
 {
     public class CinemaController : Controller
 	{
-		public readonly IEntity<Cinema> _context;
+		public readonly IEntityBaseRepository<Cinema> _context;
 		private readonly IHostingEnvironment _hosting;
 
-		public CinemaController(IEntity<Cinema> context, IHostingEnvironment hostingEnvironment)
+		public CinemaController(IEntityBaseRepository<Cinema> context, IHostingEnvironment hostingEnvironment)
 		{
 			_context = context;
 			_hosting = hostingEnvironment;
 		}
 		public async Task<IActionResult> Index()
 		{
-			var AllCinemas = await _context.GetAllAsync();
-			return View(AllCinemas);
+			return View(await _context.GetAllAsync());
 		}
 
 		public async Task<IActionResult> Details(int id)
 		{
-			return View(await _context.GetByIdAsync(id));
+			var Cinema = await _context.GetByIdAsync(id);
+			if(Cinema is null)
+			{
+				return View("Not Found");
+			}
+            return View();
 		}
 
 		public async Task<IActionResult> Edit(int id)

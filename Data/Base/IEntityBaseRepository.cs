@@ -1,6 +1,6 @@
-﻿namespace eCinema.Data.Interfaces
+﻿namespace eCinema.Data.Base
 {
-    public interface IEntity<T>
+    public interface IEntityBaseRepository<T> where T : class, IEntityBase, new()
     {
         public Task<List<T>> GetAllAsync();
         public Task<T> AddAsync(T entity);

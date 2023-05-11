@@ -2,6 +2,7 @@
 using eCinema.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
 namespace eCinema.Controllers
@@ -34,38 +35,49 @@ namespace eCinema.Controllers
 
         public IActionResult Register()
         {
+            var Roles = appDbContext.Roles.Select(r=>r.Name).ToList();
+            ViewBag.Roles = new SelectList(Roles);
             return View();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Register(AccountVM newAccount)
-        {
-            if (ModelState.IsValid)
-            {
-                //map vm to identityuser
-                IdentityUser user = new IdentityUser();
-                user.UserName = newAccount.Username;
-                user.Email = newAccount.Email;
+		[HttpPost]
+		public async Task<IActionResult> Register(AccountVM newAccount, string roleName)
+		{
+			if (ModelState.IsValid)
+			{
+				//map vm to identityuser
+				IdentityUser user = new IdentityUser();
+				user.UserName = newAccount.Username;
+				user.Email = newAccount.Email;
 
-                //use repository to add user to db
-                IdentityResult result = await userManager.CreateAsync(user, newAccount.Password);
-                if (result.Succeeded)
-                {
-                    await signInManager.SignInAsync(user, false);
-                    return RedirectToAction("Index", "Actor");
-                }
-                foreach (var item in result.Errors)
-                {
-                    ModelState.AddModelError("", item.Description);
-                }
+				//use repository to add user to db
+				IdentityResult result = await userManager.CreateAsync(user, newAccount.Password);
+				if (result.Succeeded)
+				{
+					if (!User.IsInRole("Admin"))
+					{
+						await userManager.AddToRoleAsync(user, "Customer");
+					}
+                    else
+                    {
+						await userManager.AddToRoleAsync(user, roleName);
+					}
 
-            }
-            return View(newAccount);
-        }
+					await signInManager.SignInAsync(user, false);                
+					return RedirectToAction("Index", "Movie");
+				}
+				foreach (var item in result.Errors)
+				{
+					ModelState.AddModelError("", item.Description);
+				}
 
-        //----------------------Login-----------------------------------------------//
+			}
+			return View(newAccount);
+		}
 
-        public IActionResult Login()
+		//----------------------Login-----------------------------------------------//
+
+		public IActionResult Login()
         {
             return View();
         }

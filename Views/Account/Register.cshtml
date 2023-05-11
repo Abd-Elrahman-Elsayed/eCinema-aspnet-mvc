@@ -58,6 +58,16 @@
 
                                         </div>
                                     </div>
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="bi bi-key bi-lg me-3 bi-fw regIcons"></i>
+                                            <div class="form-outline flex-fill mb-0">
+                                                <label class="form-label" for="form3Example4cd">Role</label>
+                                                <select asp-items="ViewBag.Roles" name="roleName" class="form-select"></select>
+                                            </div>
+                                        </div>
+                                    }
                                     <div class="form-check d-flex justify-content-center mb-5">
                                         <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
                                         <label class="form-check-label" for="form2Example3">

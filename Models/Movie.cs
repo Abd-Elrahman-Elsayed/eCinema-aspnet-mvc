@@ -1,10 +1,11 @@
-﻿using eCinema.Data.Enum;
+﻿using eCinema.Data.Base;
+using eCinema.Data.Enum;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace eCinema.Models
 {
-    public class Movie
+    public class Movie : IEntityBase
     {
         [Key]
         public int Id { get; set; }

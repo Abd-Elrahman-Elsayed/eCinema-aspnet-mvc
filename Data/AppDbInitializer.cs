@@ -22,28 +22,28 @@ namespace eCinema.Data
                         {
                             Name = "Cinema 1",
                             Description = "This is the best cinema",
-                            Logo = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzVFvKtgVTLW7kw7MLJ_tRmLCZNIHu00RTIQ&usqp=CAU"
+                            Logo = "https://img.freepik.com/premium-vector/cinema-logo_23-2147503279.jpg"
                         },
                         new Cinema
                         {
                             Name = "Cinema 2",
                             Description = "This is the best cinema",
-                            Logo = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzVFvKtgVTLW7kw7MLJ_tRmLCZNIHu00RTIQ&usqp=CAU"
+                            Logo = "https://img.freepik.com/premium-vector/cinema-logo_23-2147503279.jpg"
                         },new Cinema
                         {
                             Name = "Cinema 3",
                             Description = "This is the third best cinema",
-                            Logo = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzVFvKtgVTLW7kw7MLJ_tRmLCZNIHu00RTIQ&usqp=CAU"
+                            Logo = "https://img.freepik.com/premium-vector/cinema-logo_23-2147503279.jpg"
                         },new Cinema
                         {
                             Name = "Cinema 4",
                             Description = "This is the forth best cinema",
-                            Logo = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzVFvKtgVTLW7kw7MLJ_tRmLCZNIHu00RTIQ&usqp=CAU"
+                            Logo = "https://img.freepik.com/premium-vector/cinema-logo_23-2147503279.jpg"
                         },new Cinema
                         {
                             Name = "Cinema 5",
                             Description = "This is the fifth best cinema",
-                            Logo = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzVFvKtgVTLW7kw7MLJ_tRmLCZNIHu00RTIQ&usqp=CAU"
+                            Logo = "https://img.freepik.com/premium-vector/cinema-logo_23-2147503279.jpg"
                         },
                     });
                         context.SaveChanges();
@@ -58,28 +58,28 @@ namespace eCinema.Data
                         {
                             FullName = "Amir Dwidar",
                             Bio = "This is the best actor",
-                            ImageUrl = "https://cdn.24.co.za/files/Cms/General/d/676/3359d7d009554a8da539f206946d6650.jpg",
+                            ImageUrl = "https://siachenstudios.com/wp-content/uploads/2022/03/robert-1024x1024.jpg",
                         },
                         new Actor()
                         {
                             FullName = "Dalia Akram",
                             Bio = "This is the second best actor",
-                            ImageUrl = "https://cdn.24.co.za/files/Cms/General/d/676/3359d7d009554a8da539f206946d6650.jpg",
+                            ImageUrl = "https://siachenstudios.com/wp-content/uploads/2022/03/robert-1024x1024.jpg",
                         },new Actor()
                         {
                             FullName = "Mohsen Metwally",
                             Bio = "This is the third best actor",
-                            ImageUrl = "https://cdn.24.co.za/files/Cms/General/d/676/3359d7d009554a8da539f206946d6650.jpg",
+                            ImageUrl = "https://siachenstudios.com/wp-content/uploads/2022/03/robert-1024x1024.jpg",
                         },new Actor()
                         {
                             FullName = "Zaki Chan",
                             Bio = "This is the forth best actor",
-                            ImageUrl = "https://cdn.24.co.za/files/Cms/General/d/676/3359d7d009554a8da539f206946d6650.jpg",
+                            ImageUrl = "https://siachenstudios.com/wp-content/uploads/2022/03/robert-1024x1024.jpg",
                         },new Actor()
                         {
                             FullName = "Mona Walid",
                             Bio = "This is the fifth best actor",
-                            ImageUrl = "https://cdn.24.co.za/files/Cms/General/d/676/3359d7d009554a8da539f206946d6650.jpg",
+                            ImageUrl = "https://siachenstudios.com/wp-content/uploads/2022/03/robert-1024x1024.jpg",
                         }
                     });
                         context.SaveChanges();
@@ -95,28 +95,28 @@ namespace eCinema.Data
                         {
                             FullName = "Fady Saad",
                             Bio = "This is the best Producer",
-                            ImageUrl = "https://cdn.24.co.za/files/Cms/General/d/676/3359d7d009554a8da539f206946d6650.jpg",
+                            ImageUrl = "https://assets-in.bmscdn.com/iedb/artist/images/website/poster/large/ridley-scott-1878-13-09-2017-02-23-16.jpg",
                         },
                         new Producer()
                         {
                             FullName = "Emad Safwat",
                             Bio = "This is the second best Producer",
-                            ImageUrl = "https://cdn.24.co.za/files/Cms/General/d/676/3359d7d009554a8da539f206946d6650.jpg",
+                            ImageUrl = "https://assets-in.bmscdn.com/iedb/artist/images/website/poster/large/ridley-scott-1878-13-09-2017-02-23-16.jpg",
                         },new Producer()
                         {
                             FullName = "Ashraf Zaki",
                             Bio = "This is the third best Producer",
-                            ImageUrl = "https://cdn.24.co.za/files/Cms/General/d/676/3359d7d009554a8da539f206946d6650.jpg",
+                            ImageUrl = "https://assets-in.bmscdn.com/iedb/artist/images/website/poster/large/ridley-scott-1878-13-09-2017-02-23-16.jpg",
                         },new Producer()
                         {
                             FullName = "Reham Rami",
                             Bio = "This is the forth best Producer",
-                            ImageUrl = "https://cdn.24.co.za/files/Cms/General/d/676/3359d7d009554a8da539f206946d6650.jpg",
+                            ImageUrl = "https://assets-in.bmscdn.com/iedb/artist/images/website/poster/large/ridley-scott-1878-13-09-2017-02-23-16.jpg",
                         },new Producer()
                         {
                             FullName = "Nadia Saleh",
                             Bio = "This is the fifth best Producer",
-                            ImageUrl = "https://cdn.24.co.za/files/Cms/General/d/676/3359d7d009554a8da539f206946d6650.jpg",
+                            ImageUrl = "https://assets-in.bmscdn.com/iedb/artist/images/website/poster/large/ridley-scott-1878-13-09-2017-02-23-16.jpg",
                         }
                     });
                         context.SaveChanges();
@@ -131,7 +131,7 @@ namespace eCinema.Data
                         {
                             Name = "Triple X",
                             Description = "This is the best Movie",
-                            ImageUrl = "https://static.wikia.nocookie.net/die-hard-scenario/images/9/90/DHS-_xXx_movie_poster.jpg/revision/latest?cb=20150603162548",
+                            ImageUrl = "https://cdn.shopify.com/s/files/1/0969/9128/products/1917_-_Sam_Mendes_-_Hollywood_War_Film_Classic_English_Movie_Poster_9ef86295-4756-4c71-bb4e-20745c5fbc1a.jpg?v=1582781084",
                             Price = 320,
                             StartDate = DateTime.Now.AddDays(5),
                             EndtDate = DateTime.Now.AddDays(30),
@@ -143,7 +143,7 @@ namespace eCinema.Data
                         {
                             Name = "Bundle X",
                             Description = "This is the second best Movie",
-                            ImageUrl = "https://static.wikia.nocookie.net/die-hard-scenario/images/9/90/DHS-_xXx_movie_poster.jpg/revision/latest?cb=20150603162548",
+                            ImageUrl = "https://cdn.shopify.com/s/files/1/0969/9128/products/1917_-_Sam_Mendes_-_Hollywood_War_Film_Classic_English_Movie_Poster_9ef86295-4756-4c71-bb4e-20745c5fbc1a.jpg?v=1582781084",
                             Price = 220,
                             StartDate = DateTime.Now.AddDays(-5),
                             EndtDate = DateTime.Now.AddDays(30),
@@ -154,7 +154,7 @@ namespace eCinema.Data
                         {
                             Name = "Vertana X",
                             Description = "This is the third best Movie",
-                            ImageUrl = "https://static.wikia.nocookie.net/die-hard-scenario/images/9/90/DHS-_xXx_movie_poster.jpg/revision/latest?cb=20150603162548",
+                            ImageUrl = "https://cdn.shopify.com/s/files/1/0969/9128/products/1917_-_Sam_Mendes_-_Hollywood_War_Film_Classic_English_Movie_Poster_9ef86295-4756-4c71-bb4e-20745c5fbc1a.jpg?v=1582781084",
                             Price = 180,
                             StartDate = DateTime.Now.AddDays(3),
                             EndtDate = DateTime.Now.AddDays(10),
@@ -165,7 +165,7 @@ namespace eCinema.Data
                         {
                             Name = "Diana X",
                             Description = "This is the forth best Movie",
-                            ImageUrl = "https://static.wikia.nocookie.net/die-hard-scenario/images/9/90/DHS-_xXx_movie_poster.jpg/revision/latest?cb=20150603162548",
+                            ImageUrl = "https://cdn.shopify.com/s/files/1/0969/9128/products/1917_-_Sam_Mendes_-_Hollywood_War_Film_Classic_English_Movie_Poster_9ef86295-4756-4c71-bb4e-20745c5fbc1a.jpg?v=1582781084",
                             Price = 380,
                             StartDate = DateTime.Now.AddDays(1),
                             EndtDate = DateTime.Now.AddDays(12),
@@ -176,7 +176,7 @@ namespace eCinema.Data
                         {
                             Name = "Raniera X",
                             Description = "This is the fifth best Movie",
-                            ImageUrl = "https://static.wikia.nocookie.net/die-hard-scenario/images/9/90/DHS-_xXx_movie_poster.jpg/revision/latest?cb=20150603162548",
+                            ImageUrl = "https://cdn.shopify.com/s/files/1/0969/9128/products/1917_-_Sam_Mendes_-_Hollywood_War_Film_Classic_English_Movie_Poster_9ef86295-4756-4c71-bb4e-20745c5fbc1a.jpg?v=1582781084",
                             Price = 410,
                             StartDate = DateTime.Now.AddDays(-10),
                             EndtDate = DateTime.Now.AddDays(-2),
